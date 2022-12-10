@@ -18,20 +18,20 @@ class Minecord(commands.Bot):
         self.intents.all()
         print("Config loaded")
 
-        for directory_commands in os.listdir("commands"):
-            for file_commands in os.listdir(f"commands/{directory_commands}"):
+        for directory_commands in os.listdir("src/commands"):
+            for file_commands in os.listdir(f"src/commands/{directory_commands}"):
                 if file_commands.endswith(".py"):
-                    self.load_extension(f"commands.{directory_commands}.{file_commands[:-3]}")
+                    self.load_extension(f"src.commands.{directory_commands}.{file_commands[:-3]}")
 
-        for directory_listeners in os.listdir("listeners"):
-            for file_listeners in os.listdir(f"listeners/{directory_listeners}"):
+        for directory_listeners in os.listdir("src/listeners"):
+            for file_listeners in os.listdir(f"src/listeners/{directory_listeners}"):
                 if file_listeners.endswith(".py"):
-                    self.load_extension(f"listeners.{directory_listeners}.{file_listeners[:-3]}")
+                    self.load_extension(f"src.listeners.{directory_listeners}.{file_listeners[:-3]}")
 
-        for directory_tasks in os.listdir("tasks"):
-            for file_tasks in os.listdir(f"tasks/{directory_tasks}"):
+        for directory_tasks in os.listdir("src/tasks"):
+            for file_tasks in os.listdir(f"src/tasks/{directory_tasks}"):
                 if file_tasks.endswith(".py"):
-                    self.load_extension(f"tasks.{directory_tasks}.{file_tasks[:-3]}")
+                    self.load_extension(f"src.tasks.{directory_tasks}.{file_tasks[:-3]}")
         print("Extensions loaded")
 
         self.run(token)

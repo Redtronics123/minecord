@@ -1,6 +1,6 @@
 import nextcord.ext
 from nextcord.ext import commands
-from template import embeds
+from src.template import embeds
 
 
 class Ping(commands.Cog):
@@ -8,13 +8,13 @@ class Ping(commands.Cog):
         self.bot = bot
 
     @nextcord.slash_command(
-        name="nyro-ping",
+        name="minecord-ping",
         description="Show the ping from the bot",
         force_global=True
     )
     async def ping(self, ctx: nextcord.Interaction):
         embed_ping = embeds.TemplateEmbed(self.bot, ctx, ctx.user.color)
-        embed_ping.add_field(name="Ping", value=f"The ping is by: **{round(self.bot.latency * 100)}**ms")
+        embed_ping.add_field(name="Ping", value=f"The ping is by: **{round(self.bot.latency * 100)}ms**")
 
         await ctx.send(embed=embed_ping, ephemeral=True)
 

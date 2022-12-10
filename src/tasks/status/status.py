@@ -16,7 +16,7 @@ class Status(commands.Cog):
         )
         await asyncio.sleep(10)
         await self.bot.change_presence(
-            activity=nextcord.Game(f"developed by Redtronics"),
+            activity=nextcord.Game(f"Developed by Redtronics"),
             status=nextcord.Status.do_not_disturb
         )
         await asyncio.sleep(10)
